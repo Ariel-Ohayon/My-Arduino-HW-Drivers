@@ -36,6 +36,7 @@ uint8_t* SD_Read_Block(int block_num);
 
 void setup()
 {
+  char print_buffer[10];
   uint8_t* Block_Buffer;
   Serial.begin(9600);
   // Initialize SD Card Pin Configuration //
@@ -57,36 +58,21 @@ void setup()
   }
   
   Serial.println("Data of Sector number 0: (Boot Sector)");
-  Serial.print("      ");
+  Serial.print("Address ");
   for(int i=0;i<16;i++)
   {
-    Serial.print("0x");
-    if(i < 0x10)
-    {
-      Serial.print("0");
-    }
-    Serial.print(i,HEX);
-    Serial.print(" ");
+    sprintf(print_buffer,"0x%02X ",i);
+    Serial.print(print_buffer);
   }
   Serial.println();
   for(int i=0;i<32;i++)
   {
-    Serial.print("0x");
-    if(i<0x10)
-    {
-      Serial.print("0");
-    }
-    Serial.print(i,HEX);
-    Serial.print(": ");
+    sprintf(print_buffer," 0x%02X0: ",i);
+    Serial.print(print_buffer);
     for(int j = 0; j < 16; j++)
     {
-      Serial.print("0x");
-      if(Block_Buffer[i*16+j] < 0x10)
-      {
-        Serial.print("0");
-      }
-      Serial.print(Block_Buffer[i*16+j],HEX);
-      Serial.print(" ");
+      sprintf(print_buffer,"0x%02X ",Block_Buffer[i*16+j]);
+      Serial.print(print_buffer);
     }
     Serial.println();
   }
