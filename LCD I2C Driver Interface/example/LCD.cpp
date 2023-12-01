@@ -1,5 +1,5 @@
-#include <Wire.h>
 #include <Arduino.h>
+#include <Wire.h>
 
 #define LCD_cmd_En   0x0C
 #define LCD_cmd_nEn  0x08

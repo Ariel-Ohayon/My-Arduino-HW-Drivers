@@ -1,5 +1,5 @@
-#ifndef LCD_H
-#define LCD_H
+#ifndef LCD_I2C_H
+#define LCD_I2C_H
 
 void lcd_cmd(char val);
 void lcd_data(char val);
