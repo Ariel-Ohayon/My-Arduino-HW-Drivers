@@ -1,11 +1,11 @@
 #include <Wire.h>
 #include <Arduino.h>
 
-#define LCD_cmd_En 0x0C
-#define LCD_cmd_nEn 0x08
-#define LCD_data_En 0x0D
+#define LCD_cmd_En   0x0C
+#define LCD_cmd_nEn  0x08
+#define LCD_data_En  0x0D
 #define LCD_data_nEn 0x09
-#define LCD_ADD 0x3F // address of the i2c component (PCF8574)
+#define LCD_ADD      0x27
 
 // RS = 0, E = 2, RW = 1, DATA = 4 - 7 (pins between the lcd and the PCF8574)
 // MCU (MicroController) <-- PCF8574 <-- LCD (16,2)
