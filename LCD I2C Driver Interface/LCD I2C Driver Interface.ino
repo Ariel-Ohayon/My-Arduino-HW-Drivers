@@ -94,28 +94,3 @@ void lcd_clear () // command that clear LCD
 {
   lcd_cmd (0x01); //clear display
 }
-
-void lcd_print_parameter(unsigned int val)
-{
-  unsigned int val_size = 0, temp = val, temp2;
-  while(temp)
-  {
-    temp /= 10;
-    val_size++;
-  }
-  for(int temp2 = val_size-1; temp2 > -1; temp2--)
-  {
-    lcd_data(0x30 + (char)(val / mypow(10,temp2)));
-    val %= mypow(10,temp2);
-  }
-}
-
-int mypow(int val1,int val2)
-{
-  int result = 1;
-  for(int i=0;i<val2;i++)
-  {
-    result *= val1;
-  }
-  return result;
-}
